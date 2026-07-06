@@ -1,0 +1,51 @@
+.msg-sec {
+  position: relative;
+  padding: clamp(80px, 14vh, 160px) 0;
+  background: radial-gradient(ellipse at 50% 100%, #1c130c, #0a0705 70%);
+}
+.msg-heading {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  margin: 0.6rem 0 clamp(44px, 7vh, 80px);
+}
+.msg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+.msg-card {
+  position: relative;
+  padding: clamp(28px, 3vw, 44px);
+  border-radius: 18px;
+  background: linear-gradient(155deg, rgba(42,29,18,0.55), rgba(20,13,8,0.3));
+  border: 1px solid rgba(217,184,112,0.18);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft), border-color 0.5s;
+  will-change: transform, opacity;
+}
+.msg-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(217,184,112,0.5);
+  box-shadow: 0 40px 90px -34px rgba(0,0,0,0.9), 0 0 40px rgba(217,184,112,0.18);
+}
+.msg-quote {
+  font-family: var(--serif);
+  font-size: 4rem;
+  line-height: 0.5;
+  color: rgba(217,184,112,0.4);
+}
+.msg-text {
+  margin: 1.2rem 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--text-light);
+}
+.msg-from {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}

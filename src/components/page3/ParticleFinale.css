@@ -1,0 +1,27 @@
+.finale-sec {
+  position: relative;
+  height: 120vh; /* tight runway: heart → MOM & DAD, then straight to the lanterns */
+  background: #05040a;
+}
+.finale-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.finale-canvas { position: absolute !important; inset: 0; z-index: 1; }
+.finale-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 14%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.6vw, 1.9rem);
+  color: var(--champagne);
+  text-shadow: 0 2px 30px rgba(0,0,0,0.9);
+  max-width: 24ch;
+  pointer-events: none;
+}

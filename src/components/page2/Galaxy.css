@@ -1,0 +1,184 @@
+.galaxy {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0705;
+}
+.galaxy-canvas { position: absolute !important; inset: 0; z-index: 1; }
+
+.galaxy-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+.galaxy-head {
+  margin-top: 12vh;
+  text-align: center;
+  padding: 0 6vw;
+}
+.galaxy-title { font-size: clamp(2.4rem, 6vw, 5rem); margin-top: 0.8rem; text-shadow: 0 4px 30px rgba(0,0,0,.6); }
+.galaxy-hint {
+  margin-top: 1.2rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Zoom controls */
+.galaxy-zoom {
+  position: absolute;
+  right: clamp(16px, 3vw, 40px);
+  bottom: clamp(90px, 16vh, 140px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: auto;
+}
+.galaxy-zoom button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--soft-gold);
+  background: rgba(20, 13, 8, 0.5);
+  border: 1px solid rgba(217, 184, 112, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.35s, color 0.35s, transform 0.35s;
+}
+.galaxy-zoom button:hover { background: var(--soft-gold); color: var(--ink); transform: scale(1.08); }
+
+/* Tap-to-continue button (also the reliable way down on touch devices) */
+.galaxy-continue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(22px, 5vh, 40px);
+  transform: translateX(-50%);
+  z-index: 4;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 28px;
+  border-radius: 99px;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--soft-gold);
+  background: rgba(20, 13, 8, 0.55);
+  border: 1px solid rgba(217, 184, 112, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.7);
+  transition: background 0.4s var(--ease-soft), color 0.4s var(--ease-soft), transform 0.4s var(--ease-soft);
+}
+.galaxy-continue:hover {
+  background: var(--soft-gold);
+  color: var(--ink);
+  transform: translateX(-50%) translateY(-3px);
+}
+.galaxy-continue-arrow { animation: galaxyBounce 1.8s ease-in-out infinite; }
+@keyframes galaxyBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+/* Floating quotes layer */
+.galaxy-quotes { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.galaxy-quote {
+  position: absolute;
+  max-width: 16ch;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  line-height: 1.35;
+  color: var(--champagne);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.8);
+  transform: translate(-50%, -50%);
+}
+
+/* Memory card modal */
+.memory-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 5vw;
+  background: rgba(8, 5, 3, 0.78);
+  backdrop-filter: blur(10px);
+}
+.memory-card {
+  width: min(1000px, 92vw);
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background: linear-gradient(155deg, #211711, #15100b);
+  border: 1px solid rgba(217, 184, 112, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 50px 120px -40px rgba(0, 0, 0, 0.9);
+}
+.memory-card-img {
+  position: relative;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center 20%; /* bias toward the top so heads aren't cropped */
+}
+.memory-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(21,16,11,0.9));
+}
+.memory-card-heart {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: 1.5rem;
+  color: var(--rose-gold-bright);
+  filter: drop-shadow(0 0 12px rgba(227,183,160,.8));
+  animation: beat 1.8s ease-in-out infinite;
+  z-index: 2;
+}
+.memory-card-body {
+  padding: clamp(28px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.memory-card-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin: 0 0 1.2rem; }
+.memory-card-story {
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+}
+.memory-card-close {
+  align-self: flex-start;
+  margin-top: 2rem;
+  padding: 12px 26px;
+  border-radius: 99px;
+  border: 1px solid rgba(217, 184, 112, 0.5);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--soft-gold);
+  transition: background 0.4s, color 0.4s;
+}
+.memory-card-close:hover { background: var(--soft-gold); color: var(--ink); }
+
+@media (max-width: 760px) {
+  .galaxy-head { margin-top: 14vh; }
+  .memory-card { grid-template-columns: 1fr; max-height: 90vh; overflow: hidden; }
+  .memory-card-img { min-height: 42vh; background-position: center 18%; }
+  .memory-card-img::after { background: linear-gradient(0deg, rgba(21,16,11,0.9), transparent 50%); }
+}

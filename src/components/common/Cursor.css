@@ -1,0 +1,37 @@
+.cursor-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(217, 184, 112, 0.85);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 18px rgba(217, 184, 112, 0.5), inset 0 0 8px rgba(240, 200, 180, 0.4);
+  transition: width 0.3s var(--ease-soft), height 0.3s var(--ease-soft),
+    background 0.3s var(--ease-soft), border-color 0.3s var(--ease-soft);
+  will-change: transform;
+}
+
+.cursor-ring.is-active {
+  width: 56px;
+  height: 56px;
+  background: rgba(217, 184, 112, 0.12);
+  border-color: rgba(240, 200, 180, 1);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-canvas,
+  .cursor-ring { display: none; }
+}

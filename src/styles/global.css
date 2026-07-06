@@ -1,0 +1,122 @@
+/* ============================================================
+   DESIGN SYSTEM — "A Precious Memory Book"
+   Cream · Soft Gold · Champagne · Warm White · Rose Gold
+   ============================================================ */
+
+:root {
+  /* Palette */
+  --cream: #f6efe2;
+  --warm-white: #fdfaf3;
+  --champagne: #e7d2a8;
+  --soft-gold: #d9b870;
+  --gold: #c9a14a;
+  --rose-gold: #e3b7a0;
+  --rose-gold-bright: #f0c8b4;
+  --deep-rose: #b6816c;
+
+  /* Dark cinematic backdrops */
+  --ink: #0a0705;
+  --ink-2: #120c08;
+  --ink-3: #1c130c;
+  --espresso: #2a1d12;
+
+  /* Text */
+  --text-light: #f3ead8;
+  --text-muted: #c9b89a;
+  --text-dark: #2a1d12;
+
+  /* Gradients */
+  --grad-gold: linear-gradient(135deg, #f3e0b0 0%, #d9b870 38%, #c9a14a 70%, #e3b7a0 100%);
+  --grad-rose-gold: linear-gradient(120deg, #f0c8b4, #e7d2a8 50%, #d9b870);
+
+  /* Type */
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Shadows / glow */
+  --glow-gold: 0 0 40px rgba(217, 184, 112, 0.35);
+  --shadow-card: 0 30px 80px -30px rgba(0, 0, 0, 0.75);
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+html, body {
+  background: var(--ink);
+  color: var(--text-light);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body { min-height: 100vh; cursor: none; }
+
+/* Re-enable native cursor on touch devices (no custom cursor there) */
+@media (hover: none), (pointer: coarse) {
+  body { cursor: auto; }
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: none; border: none; background: none; color: inherit; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+::selection { background: rgba(217, 184, 112, 0.35); color: var(--warm-white); }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Utility */
+.gold-text {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--soft-gold);
+}
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  width: min(1200px, 90vw);
+  margin: 0 auto;
+}
+
+/* Thin gold scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--soft-gold); border-radius: 99px; opacity: .5; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Fonts loading flash guard */
+.app-root { min-height: 100vh; }

@@ -1,0 +1,164 @@
+.book-sec {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(ellipse at 50% 40%, #1c130c, #0a0705 70%);
+  overflow: hidden;
+}
+.book-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  perspective: 2200px;
+}
+
+/* Golden curtains */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 52%;
+  height: 100%;
+  z-index: 5;
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.25) 0 18px, transparent 18px 40px),
+    linear-gradient(180deg, #c9a14a, #8a6a2c 60%, #5e4519);
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
+}
+.curtain.left { left: 0; transform-origin: left; }
+.curtain.right { right: 0; transform-origin: right; }
+
+/* Book */
+.book {
+  position: relative;
+  width: min(74vw, 720px);
+  aspect-ratio: 3 / 2;
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+.book-inside {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #faf3e2, #efe2c6);
+  box-shadow: inset 0 0 60px rgba(120, 90, 40, 0.25), 0 40px 90px -30px rgba(0,0,0,0.8);
+  padding: clamp(18px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.book-inside::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(120,90,40,0.35), transparent);
+}
+.book-photos {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+.book-photo {
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 20px -8px rgba(80,50,10,0.6), 0 0 0 4px #fff, 0 0 0 5px rgba(160,120,50,.4);
+}
+.book-caption {
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #6b4f25;
+}
+.book-caption .gold-text { font-style: normal; }
+
+/* Cover (opens to the left) */
+.book-cover {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  z-index: 4;
+}
+.book-cover-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,240,200,0.15), transparent 50%),
+    linear-gradient(150deg, #2a1d12, #160f09);
+  border: 1px solid rgba(217,184,112,0.4);
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,0.9), inset 0 0 0 6px rgba(217,184,112,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 6%;
+}
+.book-cover-orn { color: var(--soft-gold); font-size: 1.4rem; opacity: 0.8; }
+.book-cover-title { font-size: clamp(1.6rem, 4vw, 3rem); max-width: 16ch; }
+.book-spine {
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, #3a2814, #1a110a);
+  transform: rotateY(90deg);
+  transform-origin: right;
+}
+
+/* Typewriter scroll cue over the closed doors */
+.book-scrollcue {
+  position: absolute;
+  bottom: clamp(28px, 6vh, 52px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+.book-scrollcue-text {
+  padding: 12px 26px;
+  border-radius: 99px;
+  background: rgba(10, 7, 5, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 245, 220, 0.3);
+  font-family: var(--sans);
+  font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  white-space: nowrap;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+}
+.tw-caret {
+  color: var(--soft-gold);
+  animation: tw-blink 1s steps(1) infinite;
+}
+@keyframes tw-blink { 50% { opacity: 0; } }
+.book-scrollcue-arrow {
+  font-size: 1.3rem;
+  color: var(--soft-gold);
+  filter: drop-shadow(0 0 8px rgba(217, 184, 112, 0.7));
+  animation: book-bounce 1.6s ease-in-out infinite;
+}
+@keyframes book-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+@media (max-width: 600px) {
+  .book { width: 88vw; aspect-ratio: 4 / 3; }
+  .book-photos { gap: 6px; }
+}

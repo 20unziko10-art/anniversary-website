@@ -1,0 +1,37 @@
+.gold-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px 38px;
+  border-radius: 99px;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--grad-gold);
+  overflow: hidden;
+  box-shadow: 0 14px 50px -14px rgba(217, 184, 112, 0.7), inset 0 0 0 1px rgba(255, 245, 220, 0.4);
+  isolation: isolate;
+}
+.gold-button-label, .gold-button-arrow { position: relative; z-index: 2; }
+.gold-button-arrow { transition: transform 0.4s var(--ease-soft); }
+.gold-button:hover .gold-button-arrow { transform: translateX(6px); }
+
+.gold-button-glow {
+  position: absolute;
+  inset: -40%;
+  z-index: 1;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.gold-button:hover .gold-button-glow { opacity: 0.6; }
+
+.gold-button.is-float { animation: floaty 4s ease-in-out infinite; }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
