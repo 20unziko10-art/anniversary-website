@@ -4,9 +4,9 @@ import { COUPLE } from '../../data/config'
 import './Nav.css'
 
 const LINKS = [
-  { to: '/', label: 'The Beginning', n: 'I' },
-  { to: '/universe', label: 'Memory Universe', n: 'II' },
-  { to: '/celebration', label: 'Celebration', n: 'III' },
+  { to: '/', label: 'البداية', n: 'I' },
+  { to: '/universe', label: 'حكايتنا', n: 'II' },
+  { to: '/celebration', label: 'فرحتنا', n: 'III' },
 ]
 
 export default function Nav() {
@@ -19,7 +19,7 @@ export default function Nav() {
       transition={{ delay: 2.2, duration: 1 }}
     >
       <NavLink to="/" className="nav-brand" data-hover>
-        <span className="nav-heart">❤</span>
+        <span className="nav-heart">♥</span>
         <span className="nav-names gold-text">{COUPLE.name}</span>
       </NavLink>
       <ul className="nav-links">
