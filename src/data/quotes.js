@@ -1,11 +1,11 @@
-/* Floating love quotes that drift through the Memory Universe. */
+/* اقتباسات حب بالمصري */
 
 export const QUOTES = [
-  'You are my today and all of my tomorrows.',
-  'In all the world, there is no heart for me like yours.',
-  'Every love story is beautiful, but ours is my favorite.',
-  'I have found the one whom my soul loves.',
-  'Grow old with me — the best is yet to be.',
-  'With you, home is wherever we are.',
-  'I still fall for you a little more every single day.',
+'إنت حبيبتي النهارده، وبكرة، وكل يوم جاي.',
+'وسط كل الناس، قلبي اختارك إنت.',
+'كل حكايات الحب حلوة، بس حكايتنا هي الأحلى عندي.',
+'لقيت معاك الحب اللي قلبي كان بيدوّر عليه.',
+'نفسي نكبر سوا، ولسه أجمل أيامنا جاية.',
+'معاك أي مكان بيبقى بيتي.',
+'كل يوم بكتشف إني بحبك أكتر من اليوم اللي قبله.',
 ]
