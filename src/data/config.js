@@ -5,14 +5,14 @@
 
 export const COUPLE = {
   // Shown in the nav and around the site (her name, or a pet name).
-  name: 'My Love',
+  name: 'نور عيني',
   // How the hero greeting reads:  "Happy Anniversary <heroName>"
-  heroName: 'My Love',
+  heroName: 'نور عيني',
   // Signed at the very end of the experience.
-  signature: 'Forever Yours',
+  signature: 'حبي الأبدي',
   // The day your story became official — powers the live anniversary counter.
   // Format: YYYY, MM (1-12), DD
-  weddingDate: { year: 2020, month: 2, day: 14 },
+  weddingDate: { year: 2025, month: 7, day: 27 },
   // Which anniversary this celebrates (optional, cosmetic). null = auto.
   anniversaryNumber: null,
 }
