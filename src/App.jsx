@@ -45,7 +45,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <SmoothScroll>
-      <div className="app-root">
+      <div className="app-root" dir="rtl" lang="ar">
         <Loader />
         <Cursor />
         <Nav />
